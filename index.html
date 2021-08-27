@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Samples</title>
+</head>
+<body>
+  <div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script>
+  const items = [
+    "2 lb salmon",
+    "5 springs fresh rosemary",
+    "2 tablespoon olive oil",
+    "2 small lemons",
+    "1 teaspoon kosher salt",
+    "4 cloves ofchoped garlic"
+  ];
+
+  const instructions = [
+    "Preheat the oven to 375 degrees.",
+    "Lightly coat aluminum foil with oil",
+    "Place salmon on foil",
+    "Cover with rosemary, sliced lemons, chopped garlic.",
+    "Bake for 15-20 minutes until cooked through.",
+    "Remove from oven."
+  ]
+
+  let list = React.createElement(
+    "section",
+    {id: "baked-salmon"},
+    React.createElement("h1", null, "Baked Salmon"),
+    React.createElement(
+      "ul",
+      {className: "ingredients"},
+      React.createElement("li", null,
+        items.map((ingredient, idx) => React.createElement("ul", {key: idx}, ingredient)))
+    ),
+    React.createElement(
+      "section",
+      {className: "instructions"},
+      React.createElement("h2", null, "Cooking Instructions"),
+      React.createElement("div", null, React.createElement("div", 
+      null,
+      instructions.map((ingredient, idx) => React.createElement("p", {key: idx}, ingredient))))))
+
+  ReactDOM.render(list, document.getElementById('root'))
+</script>
+</body>
+</html>
